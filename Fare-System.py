@@ -25,5 +25,23 @@ def compute_fare(self, distance_km):
 def describe(self):
     pass
 # ===== Jeepney class (Developer A) =====
+lass Jeepney(Vehicle):
+    """Represents a Jeepney vehicle."""
+
+    def __init__(self, plate_number, capacity):
+        super().__init__(plate_number, capacity)
+
+    def compute_fare(self, distance_km):
+        base_fare = 13.00
+        additional_fare_per_km = 1.50
+        if distance_km <= 4:
+            return base_fare
+        else:
+            additional_distance = distance_km - 4
+            return base_fare + (additional_distance * additional_fare_per_km)
+
+    def describe(self):
+        return f"Jeepney {self.get_plate_number()} with capacity {self.get_capacity()} passengers."
+# ===== Tricycle class (Developer B) =====
 # ===== Tricycle class (Developer B) =====
 # ===== Test code (Part 6 only) =====
